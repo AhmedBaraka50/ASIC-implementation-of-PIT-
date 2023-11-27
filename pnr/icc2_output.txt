@@ -1,0 +1,476 @@
+
+icc2_shell> 
+icc2_shell> open_block /home/ICer/Baraka/PIT/pnr/PIT:floorplan.design
+Information: User units loaded from library 'saed32_hvt|saed32_hvt_std' (LNK-040)
+Opening block 'PIT:floorplan.design' in edit mode
+{PIT:floorplan.design}
+icc2_shell> start_gui
+Begin building search trees for block PIT:floorplan.design
+Done building search trees for block PIT:floorplan.design (time 0s)
+icc2_shell> link_block
+Using libraries: PIT saed32_hvt saed32_lvt
+Visiting block PIT:floorplan.design
+Design 'pit_top' was successfully linked.
+1
+icc2_shell> open_block /home/ICer/Baraka/PIT/pnr/PIT:power_ring.design
+Opening block 'PIT:power_ring.design' in edit mode
+Information: loading PG routing via master rules, patterns, strategies and strategy via rules.
+Begin building search trees for block PIT:power_ring.design
+Done building search trees for block PIT:power_ring.design (time 0s)
+icc2_shell> link_block
+Using libraries: PIT saed32_hvt saed32_lvt
+Visiting block PIT:power_ring.design
+Design 'pit_top' was successfully linked.
+1
+icc2_shell> set_working_design_stack PIT:floorplan.design
+icc2_shell> set_working_design_stack PIT:power_ring.design
+icc2_shell> open_block /home/ICer/Baraka/PIT/pnr/PIT:placement.design
+Opening block 'PIT:placement.design' in edit mode
+Information: loading PG routing via master rules, patterns, strategies and strategy via rules.
+Begin building search trees for block PIT:placement.design
+Done building search trees for block PIT:placement.design (time 0s)
+icc2_shell> link_block
+Using libraries: PIT saed32_hvt saed32_lvt
+Visiting block PIT:placement.design
+Design 'pit_top' was successfully linked.
+1
+icc2_shell> open_block /home/ICer/Baraka/PIT/pnr/PIT:cts_final.design
+Opening block 'PIT:cts_final.design' in edit mode
+Information: loading PG routing via master rules, patterns, strategies and strategy via rules.
+Begin building search trees for block PIT:cts_final.design
+Done building search trees for block PIT:cts_final.design (time 0s)
+icc2_shell> link_block
+Using libraries: PIT saed32_hvt saed32_lvt
+Visiting block PIT:cts_final.design
+Information: Clearing abstracted power annotation ... 
+Design 'pit_top' was successfully linked.
+1
+icc2_shell> open_block /home/ICer/Baraka/PIT/pnr/PIT:cts_final.design
+Information: Incrementing open_count of block 'PIT:cts_final.design' to 2. (DES-021)
+icc2_shell> set_working_design_stack PIT:placement.design
+icc2_shell> set_working_design_stack PIT:cts_final.design
+icc2_shell> set_working_design_stack PIT:placement.design
+icc2_shell> open_block /home/ICer/Baraka/PIT/pnr/PIT:cts_final.design
+Information: Incrementing open_count of block 'PIT:cts_final.design' to 3. (DES-021)
+icc2_shell> set_working_design_stack PIT:placement.design
+icc2_shell> open_block /home/ICer/Baraka/PIT/pnr/PIT:route_end.design
+Opening block 'PIT:route_end.design' in edit mode
+Information: loading PG routing via master rules, patterns, strategies and strategy via rules.
+Begin building search trees for block PIT:route_end.design
+Done building search trees for block PIT:route_end.design (time 0s)
+icc2_shell> link_block
+Using libraries: PIT saed32_hvt saed32_lvt
+Visiting block PIT:route_end.design
+Information: Clearing abstracted power annotation ... 
+Design 'pit_top' was successfully linked.
+1
+icc2_shell> set_working_design_stack PIT:placement.design
+icc2_shell> set_working_design_stack PIT:route_end.design
+icc2_shell> report_congestion
+****************************************
+Report : congestion
+Design : pit_top
+Version: O-2018.06-SP1
+Date   : Tue Nov 21 20:04:33 2023
+****************************************
+
+Layer     |    overflow     |              # GRCs has
+Name      |  total  |  max  | overflow (%)      | max overflow
+---------------------------------------------------------------
+Both Dirs |       1 |     1 |       1  ( 0.04%) |       1
+H routing |       1 |     1 |       1  ( 0.07%) |       1
+V routing |       0 |     0 |       0  ( 0.00%) |       0
+
+1
+icc2_shell> report_timing -delay_type max -corners slow
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+************************************************************
+Warning: Corner fast:  0 process number, 6 process label, 0 voltage, and 0 temperature mismatches. (PVT-030)
+Warning: 714 cells affected for early, 714 for late. (PVT-031)
+Warning: 28 port driving_cells affected for early, 28 for late. (PVT-034)
+Warning: Corner slow:  0 process number, 6 process label, 0 voltage, and 0 temperature mismatches. (PVT-030)
+Warning: 714 cells affected for early, 714 for late. (PVT-031)
+Warning: 28 port driving_cells affected for early, 28 for late. (PVT-034)
+Information: The stitching and editing of coupling caps is turned OFF for design 'PIT:route_end.design'. (TIM-125)
+Information: Design route_end has 772 nets, 0 global routed, 770 detail routed. (NEX-024)
+Information: The RC mode used is DR for design 'pit_top'. (NEX-022)
+---extraction options---
+Corner: slow
+ late_cap_scale                : 1
+ late_res_scale                : 1
+ early_cap_scale               : 1
+ early_res_scale               : 1
+Corner: fast
+ late_cap_scale                : 1
+ late_res_scale                : 1
+ early_cap_scale               : 1
+ early_res_scale               : 1
+Global options:
+ reference_direction       : use_from_tluplus
+ real_metalfill_extraction : none
+ virtual_shield_extraction : true
+---app options---
+ host.max_cores                   : 1
+ extract.connect_open           : true
+ extract.incremental_extraction : true
+ extract.enable_coupling_cap    : false
+Extracting design: route_end 
+Information: coupling capacitance is lumped to ground. (NEX-030)
+Information: 770 nets are successfully extracted. (NEX-028)
+Information: Advanced receiver model has not been enabled for detailed routed design. (TIM-204)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 770, routed nets = 770, across physical hierarchy nets = 0, parasitics cached nets = 770, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : pit_top
+Version: O-2018.06-SP1
+Date   : Tue Nov 21 20:05:39 2023
+****************************************
+
+  Startpoint: prescale/cnt_n_reg[13] (rising edge-triggered flip-flop clocked by clk_i)
+  Endpoint: prescale/cnt_n_reg[14] (rising edge-triggered flip-flop clocked by clk_i)
+  Mode: func
+  Corner: slow
+  Scenario: func_slow
+  Path Group: clk_i
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock clk_i (rise edge)                          0.00      0.00
+  clock network delay (propagated)                 0.32      0.32
+
+  prescale/cnt_n_reg[13]/CLK (DFFARX1_HVT)         0.00      0.32 r
+  prescale/cnt_n_reg[13]/Q (DFFARX1_HVT)           2.36      2.68 f
+  U257/Y (AOI22X1_LVT)                             0.21      2.89 r
+  U258/Y (NAND3X0_LVT)                             0.06      2.94 f
+  U261/Y (NOR4X1_LVT)                              0.15      3.10 r
+  U276/Y (AND4X1_LVT)                              0.08      3.18 r
+  U279/Y (NAND2X4_LVT)                             0.09      3.27 f
+  U282/Y (AND2X1_LVT)                              0.07      3.34 f
+  U283/Y (AND2X1_LVT)                              0.10      3.44 f
+  U291/Y (AND2X1_LVT)                              0.08      3.52 f
+  U292/Y (AND4X1_LVT)                              0.13      3.65 f
+  U320/Y (NAND4X0_LVT)                             0.10      3.75 r
+  U322/Y (XOR2X2_LVT)                              0.08      3.83 r
+  prescale/cnt_n_reg[14]/D (DFFARX1_HVT)           0.00      3.83 r
+  data arrival time                                          3.83
+
+  clock clk_i (rise edge)                          5.00      5.00
+  clock network delay (propagated)                 0.07      5.07
+  prescale/cnt_n_reg[14]/CLK (DFFARX1_HVT)         0.00      5.07 r
+  library setup time                              -1.24      3.83
+  data required time                                         3.83
+  ------------------------------------------------------------------------
+  data required time                                         3.83
+  data arrival time                                         -3.83
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.00
+
+
+1
+icc2_shell> report_timing -delay_type min -corners fast
+****************************************
+Report : timing
+        -path_type full
+        -delay_type min
+        -max_paths 1
+        -report_by design
+Design : pit_top
+Version: O-2018.06-SP1
+Date   : Tue Nov 21 20:06:18 2023
+****************************************
+
+  Startpoint: arst_i (input port clocked by clk_i)
+  Endpoint: counter/cnt_n_reg[15] (removal check against rising-edge clock clocked by clk_i)
+  Mode: func
+  Corner: fast
+  Scenario: func_fast
+  Path Group: clk_i
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock clk_i (rise edge)                          0.00      0.00
+  clock network delay (ideal)                      0.08      0.08
+  input external delay                             1.00      1.08
+
+  arst_i (in)                                      0.00      1.08 r
+  copt_h_inst_668/Y (DELLN1X2_HVT)                 0.08      1.15 r
+  copt_d_inst_1188/Y (NBUFFX4_LVT)                 0.02      1.17 r
+  copt_d_inst_1187/Y (INVX2_HVT)                   0.02      1.19 f
+  copt_d_inst_1186/Y (INVX8_HVT)                   0.02      1.20 r
+  counter/cnt_n_reg[15]/RSTB (DFFARX1_HVT)         0.00      1.20 r
+  data arrival time                                          1.20
+
+  clock clk_i (rise edge)                          0.00      0.00
+  clock network delay (propagated)                 0.34      0.34
+  counter/cnt_n_reg[15]/CLK (DFFARX1_HVT)          0.00      0.34 r
+  library hold time                                1.31      1.64
+  data required time                                         1.64
+  ------------------------------------------------------------------------
+  data required time                                         1.64
+  data arrival time                                         -1.20
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                          -0.44
+
+
+1
+icc2_shell> report_area
+Error: Command 'report_area' is disabled. (CMD-080)
+icc2_shell> report_power
+****************************************
+Report : power
+        -significant_digits 2
+Design : pit_top
+Version: O-2018.06-SP1
+Date   : Tue Nov 21 20:07:09 2023
+****************************************
+Information: Doing activity propagation for mode 'func' and corner 'slow' with effort level 'medium'. (POW-024)
+Information: Timer-derived activity data is cached on scenario func_slow (POW-052)
+Scenario func_slow, iteration 1: expecting at least 5
+Scenario func_slow, iteration 2: expecting at least 6
+Scenario func_slow, iteration 3: expecting at least 6
+Scenario func_slow, iteration 4: expecting at least 6
+Scenario func_slow, iteration 5: expecting at least 6
+Scenario func_slow, iteration 6: expecting at least 6
+Mode: func
+Corner: slow
+Scenario: func_slow
+Voltage: 0.75
+Temperature: 125.00
+
+Voltage Unit         : 1V
+Capacitance Unit     : 1fF
+Time Unit            : 1ns
+Temperature Unit     : 1C
+Dynamic Power Unit   : 1pW
+Leakage Power Unit   : 1pW
+
+Switched supply net power scaling:
+scaling for leakage power
+
+Supply nets:
+VDD (power) probability 1.00 (default)
+VSS (ground) probability 1.00 (default)
+Warning: Power table extrapolation (extrapolation mode) for port CLK on cell wishbone/clk_gate_addr_latch_reg/latch for parameter Tinp. Lowest table value = inf, highest table value = inf, value = 0.029907 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port CLK on cell regs/clk_gate_pit_slave_reg/latch for parameter Tinp. Lowest table value = inf, highest table value = inf, value = 0.029888 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port CLK on cell regs/clk_gate_mod_value_reg/latch for parameter Tinp. Lowest table value = inf, highest table value = inf, value = 0.022621 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port CLK on cell counter/clk_gate_cnt_n_reg/latch for parameter Tinp. Lowest table value = inf, highest table value = inf, value = 0.022602 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port D on cell wishbone/addr_latch_reg[0] for parameter Tinp. Lowest table value = inf, highest table value = inf, value = 0.006790 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port QN on cell wishbone/addr_latch_reg[0] for parameter Cout. Lowest table value = 0.000100, highest table value = 0.008000, value = 0.000000 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port D on cell wishbone/addr_latch_reg[1] for parameter Tinp. Lowest table value = inf, highest table value = inf, value = 0.006104 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port QN on cell wishbone/addr_latch_reg[1] for parameter Cout. Lowest table value = 0.000100, highest table value = 0.008000, value = 0.000000 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port D on cell wishbone/addr_latch_reg[2] for parameter Tinp. Lowest table value = inf, highest table value = inf, value = 0.007858 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port QN on cell wishbone/addr_latch_reg[2] for parameter Cout. Lowest table value = 0.000100, highest table value = 0.008000, value = 0.000000 (POW-046)
+Note - message 'POW-046' limit (10) exceeded. Remainder will be suppressed.
+Warning: Fall toggles on pin prescale/cnt_n_reg[5]/QN are impossible given input states; converted to rise toggles. (POW-069)
+Warning: Fall toggles on pin prescale/cnt_n_reg[6]/QN are impossible given input states; converted to rise toggles. (POW-069)
+Warning: Fall toggles on pin prescale/cnt_n_reg[7]/QN are impossible given input states; converted to rise toggles. (POW-069)
+Warning: Fall toggles on pin prescale/cnt_n_reg[9]/QN are impossible given input states; converted to rise toggles. (POW-069)
+Warning: Fall toggles on pin prescale/cnt_n_reg[10]/QN are impossible given input states; converted to rise toggles. (POW-069)
+Warning: Fall toggles on pin prescale/cnt_n_reg[11]/QN are impossible given input states; converted to rise toggles. (POW-069)
+Warning: Fall toggles on pin prescale/cnt_n_reg[12]/QN are impossible given input states; converted to rise toggles. (POW-069)
+Warning: Fall toggles on pin prescale/cnt_n_reg[13]/QN are impossible given input states; converted to rise toggles. (POW-069)
+Warning: Fall toggles on pin prescale/cnt_n_reg[14]/QN are impossible given input states; converted to rise toggles. (POW-069)
+Warning: Fall toggles on pin counter/cnt_n_reg[11]/QN are impossible given input states; converted to rise toggles. (POW-069)
+Note - message 'POW-069' limit (10) exceeded. Remainder will be suppressed.
+
+  Cell Internal Power    = 6.11e+07 pW ( 80.2%)
+  Net Switching Power    = 1.51e+07 pW ( 19.8%)
+Total Dynamic Power      = 7.62e+07 pW (100.0%)
+
+Cell Leakage Power       = 1.83e+08 pW
+
+
+  Attributes
+  ----------
+      u  -  User defined power group
+
+Power Group         Internal Power        Switching Power          Leakage Power            Total Power    (   %  )    Attrs
+-----------------------------------------------------------------------------------------------------------------------------
+io_pad                    0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)      
+memory                    0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)      
+black_box                 0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)      
+clock_network             5.20e+07               1.23e+07               1.24e+07               7.67e+07    ( 29.6%)      
+register                  3.54e+06               2.97e+05               5.50e+07               5.88e+07    ( 22.7%)      
+sequential                0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)      
+combinational             5.55e+06               2.55e+06               1.15e+08               1.24e+08    ( 47.7%)      
+-----------------------------------------------------------------------------------------------------------------------------
+Total                     6.11e+07 pW            1.51e+07 pW            1.83e+08 pW            2.59e+08 pW
+1
+icc2_shell> report_qor_snapshot
+Error: Unbale to find any snapshot in /home/ICer/Baraka/PIT/pnr/snapshot
+Error: false
+        Use error_info for more info. (CMD-013)
+icc2_shell> report_qor
+****************************************
+Report : qor
+Design : pit_top
+Version: O-2018.06-SP1
+Date   : Tue Nov 21 20:08:11 2023
+****************************************
+
+
+Scenario           'func_fast'
+Timing Path Group  'clk_i'
+----------------------------------------
+Levels of Logic:                     10
+Critical Path Length:              3.54
+Critical Path Slack:               0.02
+Critical Path Clk Period:          5.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+Worst Hold Violation:             -0.44
+Total Hold Violation:             -8.40
+No. of Hold Violations:              47
+----------------------------------------
+
+Scenario           'func_slow'
+Timing Path Group  'clk_i'
+----------------------------------------
+Levels of Logic:                     11
+Critical Path Length:              3.51
+Critical Path Slack:               0.00
+Critical Path Clk Period:          5.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+Worst Hold Violation:             -0.45
+Total Hold Violation:             -8.57
+No. of Hold Violations:              47
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              4
+Hierarchical Port Count:             24
+Leaf Cell Count:                    714
+Buf/Inv Cell Count:                 433
+Buf Cell Count:                     406
+Inv Cell Count:                      27
+CT Buf/Inv Cell Count:                0
+Combinational Cell Count:           648
+Sequential Cell Count:               66
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:             1798.07
+Noncombinational Area:           466.10
+Buf/Inv Area:                   1213.79
+Total Buffer Area:              1151.27
+Total Inverter Area:              62.52
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                       0.00
+Net YLength:                       0.00
+----------------------------------------
+Cell Area (netlist):                           2264.17
+Cell Area (netlist and physical only):         2264.17
+Net Length:                        0.00
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:               774
+Nets with Violations:                 0
+Max Trans Violations:                 0
+Max Cap Violations:                   0
+----------------------------------------
+
+1
+icc2_shell> report_qor
+****************************************
+Report : qor
+Design : pit_top
+Version: O-2018.06-SP1
+Date   : Tue Nov 21 20:09:48 2023
+****************************************
+
+
+Scenario           'func_fast'
+Timing Path Group  'clk_i'
+----------------------------------------
+Levels of Logic:                     10
+Critical Path Length:              3.54
+Critical Path Slack:               0.02
+Critical Path Clk Period:          5.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+Worst Hold Violation:             -0.44
+Total Hold Violation:             -8.40
+No. of Hold Violations:              47
+----------------------------------------
+
+Scenario           'func_slow'
+Timing Path Group  'clk_i'
+----------------------------------------
+Levels of Logic:                     11
+Critical Path Length:              3.51
+Critical Path Slack:               0.00
+Critical Path Clk Period:          5.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+Worst Hold Violation:             -0.45
+Total Hold Violation:             -8.57
+No. of Hold Violations:              47
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              4
+Hierarchical Port Count:             24
+Leaf Cell Count:                    714
+Buf/Inv Cell Count:                 433
+Buf Cell Count:                     406
+Inv Cell Count:                      27
+CT Buf/Inv Cell Count:                0
+Combinational Cell Count:           648
+Sequential Cell Count:               66
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:             1798.07
+Noncombinational Area:           466.10
+Buf/Inv Area:                   1213.79
+Total Buffer Area:              1151.27
+Total Inverter Area:              62.52
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                       0.00
+Net YLength:                       0.00
+----------------------------------------
+Cell Area (netlist):                           2264.17
+Cell Area (netlist and physical only):         2264.17
+Net Length:                        0.00
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:               774
+Nets with Violations:                 0
+Max Trans Violations:                 0
+Max Cap Violations:                   0
+----------------------------------------
+
+1
+icc2_shell> 

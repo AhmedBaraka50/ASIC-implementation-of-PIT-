@@ -1,0 +1,12 @@
+para.tlup_max_125.spef for scenarios: 
+	 scenario: func_slow, corner type: late
+
+para.tlup_max_-40.spef for scenarios: 
+	 scenario: func_slow, corner type: early
+
+para.tlup_min_125.spef for scenarios: 
+	 scenario: func_fast, corner type: late
+
+para.tlup_min_-40.spef for scenarios: 
+	 scenario: func_fast, corner type: early
+
