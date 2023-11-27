@@ -6,3 +6,6 @@ The PIT core has 4 primary blocks:
 •	Control Registers
 •	Prescale Counter
 •	Main Counter
+
+
+
